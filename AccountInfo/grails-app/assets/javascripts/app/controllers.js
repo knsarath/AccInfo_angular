@@ -82,4 +82,42 @@ var createWeb = myapp.controller('createWebController',['$scope','$http','parseE
  * 
  */
 
+
+
+
+/*
+ * 
+ *     FTP CREATE (createFtp) CONTROLLER START
+ * 
+ */
+      
+      var createFTP = myapp.controller('createFtpController',['$scope','$http','parseErrors',function($scope,$http,parseErrors){
+           
+               $scope.saveFtp = function(){
+                                                $scope.errors = null;
+                                                $scope.success = false;
+                                                console.log($scope.fields);
+                                                var url = '/AccountInfo/api/accounts/ftp';
+                                                $http.post(url,$scope.fields)
+                                                        .success(function(data,status){ console.log(data)  })
+                                                        .error(function(data){ console.log(data); parseErrors.get(data,function(response,totalErrors) { $scope.totalErrors=totalErrors; $scope.errors=response; console.log($scope.errors) }); });
+                                          };   
+      }]);
+      
+      
+
+/*
+ * 
+ *    FTP CREATE CONTROLLER END
+ * 
+ */
+
+
+
+
+
+
+
+
+
 console.log('Loaded Controllers');

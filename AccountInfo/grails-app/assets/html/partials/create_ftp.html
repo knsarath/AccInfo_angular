@@ -1,0 +1,175 @@
+<div class="page-header ng-scope">
+  <h3>New FTP Account <small>Enter your FTP account details here</small></h3>
+</div>
+<hr>
+<form ng-controller="createFtpController" class="form-horizontal" ng-submit="saveFtp()"  >
+      <div class="control-group">
+         <label class="control-label" for="inputProvider">Provider</label>
+         <div class="controls">
+             <input ng-model="fields.provider" type="text" id="inputProvider" placeholder="Provider (Eg:Godaddy , Amazon )">
+         </div>
+      </div>
+      <div class="control-group">
+         <label class="control-label" for="inputDomainName">Domain</label>
+         <div class="controls">
+             <input ng-model="fields.domainName" type="text" id="inputDomainName" placeholder="www.example.com">
+         </div>
+      </div>
+     <div class="control-group">
+         <label class="control-label" for="inputIP">IP Address</label>
+         <div class="controls">
+             <input ng-model="fields.IP" type="text" id="inputIP" placeholder="192.125.34.54">
+         </div>
+      </div>
+     <div class="control-group">
+         <label class="control-label" for="inputserverName">ServerName</label>
+         <div class="controls">
+             <input ng-model="fields.serverName" type="text" id="inputServerName" placeholder="Server name">
+         </div>
+      </div>
+    <div class="control-group">
+         <label class="control-label" for="inputftpUsername">FTP Username</label>
+         <div class="controls">
+             <input ng-model="fields.ftpUsername" type="text" id="inputUsername" placeholder="Username">
+         </div>
+      </div>
+    <div class="control-group">
+         <label class="control-label" for="inputftpPassword">FTP Password</label>
+         <div class="controls">
+             <input ng-model="fields.ftpPassword" type="text" id="inputftpPassword" placeholder="Password">
+         </div>
+      </div>
+        <div class="control-group">
+         <label class="control-label" for="inputftpUploadFolder">FTP Upload Directory</label>
+         <div class="controls">
+             <input ng-model="fields.ftpUploadFolder" type="text" id="inputftpUploadFolder" placeholder="Eg: public_html">
+         </div>
+      </div>
+       <div class="control-group">
+         <label class="control-label" for="inputSQLtype">SQL Type</label>
+         <div class="controls">
+             <input ng-model="fields.SQLtype" type="text" id="inputSQLtype" placeholder="Eg: MySQL,MongoDB">
+         </div>
+      </div>
+    
+    <div class="control-group">
+         <label class="control-label" for="inputSQLusername">Database Username</label>
+         <div class="controls">
+             <input ng-model="fields.SQLusername" type="text" id="inputSQLusername" placeholder="Username">
+         </div>
+      </div>
+      <div class="control-group">
+         <label class="control-label" for="inputSQLpassword">Database Password</label>
+         <div class="controls">
+             <input ng-model="fields.SQLpassword" type="text" id="inputSQLpassword" placeholder="Password">
+         </div>
+      </div>
+    <div class="control-group">
+         <label class="control-label" for="inputSQLHost">Database Host</label>
+         <div class="controls">
+             <input ng-model="fields.SQLHost" type="text" id="inputSQLHost" placeholder="Database Host">
+         </div>
+      </div>
+    
+     <div class="control-group">
+         <label class="control-label" for="inputwebMailId">Web Mail ID</label>
+         <div class="controls">
+             <input ng-model="fields.webMailId" type="text" id="inputwebMailId" placeholder="Mail id of FTP mail service">
+         </div>
+      </div>
+    <div class="control-group">
+         <label class="control-label" for="inputwebMailUsername">Web Mail Username</label>
+         <div class="controls">
+             <input ng-model="fields.webMailUsername" type="text" id="inputwebMailUsername" placeholder="Username of FTP mail service">
+         </div>
+      </div>
+    <div class="control-group">
+         <label class="control-label" for="inputwebMailPassword">Web Mail Password</label>
+         <div class="controls">
+             <input ng-model="fields.webMailPassword" type="text" id="inputwebMailPassword" placeholder="Password of FTP mail service">
+         </div>
+      </div>
+     <div class="control-group">
+         <label class="control-label" for="inputpop3ImapHost">pop3 Imap Host</label>
+         <div class="controls">
+             <input ng-model="fields.pop3ImapHost" type="text" id="inputpop3ImapHost" placeholder="pop3ImapHost of mail service">
+         </div>
+      </div>
+    <div class="control-group">
+        <label class="control-label" for="inputpop3Port">pop3 Port</label>
+         <div class="controls">
+             <input ng-model="fields.pop3Port" type="text" id="inputpop3Port" placeholder="pop3Imap Port of mail service">
+         </div>
+      </div>
+    
+    <div class="control-group">
+        <label class="control-label" for="inputimapPort">pop3 Port</label>
+         <div class="controls">
+             <input ng-model="fields.imapPort" type="text" id="inputimapPort" placeholder="imap Port of mail service">
+         </div>
+      </div>
+    
+      <div class="control-group">
+        <label class="control-label" for="inputsmtpHost">SMTP Host</label>
+         <div class="controls">
+             <input ng-model="fields.smtpHost" type="text" id="inputsmtpHost" placeholder="SMTP Host of mail service">
+         </div>
+      </div>
+    
+    <div class="control-group">
+        <label class="control-label" for="inputsmtpPort">SMTP Port</label>
+         <div class="controls">
+             <input ng-model="fields.smtpPort" type="text" id="inputsmtpPort" placeholder="SMTP Port of mail service">
+         </div>
+      </div>
+    
+      <div class="control-group">
+         <div class="controls">
+           
+            <button type="submit" class="btn">Save</button>
+             <button type="reset" id="reset" class="btn">Clear</button>
+         </div>
+      </div>
+      <div id="messageArea"> 
+    <div class="control-group" ng-if="errors!=null">
+        <span class="label label-important">{{ e.__cnt  }}</span>
+        <div >
+       
+         <div class="controls" >
+             <label class="control-label " for="errors">{{ totalErrors + ' error(s) has occured' }}</label> <br><p>
+             <div ng-repeat="er in errors" >
+                <span class="label label-important" >{{ er.message }}</span>
+         
+          </div>
+         </div>
+        </div>
+        </div>
+    
+       <div class="control-group" ng-if="success==true">
+       
+       
+         <label class="control-label" for="errors"></label>
+         <div class="controls">
+            <div>
+                <span class="label label-success">Successfully saved!!</span>
+         
+          </div>
+         </div>
+        </div>
+    </div>
+    
+    
+    
+   </form>
+
+<script>
+    $('#reset').click(
+                 function()
+                        {
+                           $("#messageArea").html('')   
+                          
+                           $('#inputProvider').focus();
+                           
+                        });
+  
+</script>

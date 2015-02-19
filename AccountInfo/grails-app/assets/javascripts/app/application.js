@@ -18,7 +18,11 @@ myapp.config(['$routeProvider',
             when('/addweb', {
                 templateUrl: 'assets/partials/create_web.html',
                 controller: 'createWebController'
-            }).        
+            }). 
+            when('/addFtp', {
+                templateUrl: 'assets/partials/create_ftp.html',
+                controller: 'createWebController'
+            }).         
             when('/myEvents/:eventId', {
                 templateUrl: 'assets/partials/event-form.html',
                // controller: 'editEventController'
