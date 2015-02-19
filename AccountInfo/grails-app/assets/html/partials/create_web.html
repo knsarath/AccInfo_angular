@@ -1,0 +1,103 @@
+<div class="page-header">
+  <h3>New WebAccount <small>Enter your web account details here</small></h3>
+</div>  
+<hr>
+
+<form class="form-horizontal" ng-submit="submit()" enctype="" id="frmCreateWeb">
+      <div class="control-group">
+         <label class="control-label" for="inputProvider">Provider</label>
+         <div class="controls">
+             <input type="text" id="inputProvider" ng-model="fields.provider" placeholder="Provider Name (eg:Google)">
+         </div>
+      </div>
+    
+     <div class="control-group">
+         <label class="control-label" for="homepageUrl">Homepage URL</label>
+         <div class="controls">
+             <input type="url" id="Icon" ng-model="fields.homepageUrl" placeholder="Home page url eg:www.google.com">
+         </div>
+      </div>
+    
+      <div class="control-group">
+         <label class="control-label" for="inputUsername">Username</label>
+         <div class="controls">
+             <input type="text" id="inputUsername" ng-model="fields.username" placeholder="Username">
+         </div>
+      </div>
+    
+     <div class="control-group">
+         <label class="control-label" for="inputpassword">Password</label>
+         <div class="controls">
+             <input type="text" id="inputpassword" ng-model="fields.password" placeholder="Password">
+         </div>
+      </div>
+     <div class="control-group">
+         <label class="control-label" for="inputUsername">Registered Email</label>
+         <div class="controls">
+             <input type="email" id="Icon" ng-model="fields.registeredEmail" placeholder="Email">
+         </div>
+      </div>
+    
+     <div class="control-group">
+         <label class="control-label" for="inputUsername">icon</label>
+         <div class="controls">
+              <input type="file" ng-file-model="myFile" id="fileUpload" onChange="handleFiles(this.files) />
+         </div>
+      </div>     
+    
+
+
+  
+
+    
+    
+    
+      <div class="control-group">
+         <div class="controls">
+           
+            <button type="submit" class="btn">Save Details</button>
+            <button type="reset" id="reset" class="btn"> Clear </button>
+         </div>
+      </div>
+    <div id="messageArea"> 
+    <div class="control-group" ng-if="errors!=null">
+        <span class="label label-important">{{ e.__cnt  }}</span>
+        <div >
+       
+         <div class="controls" >
+             <label class="control-label " for="errors">{{ totalErrors + ' error(s) has occured' }}</label> <br><p>
+             <div ng-repeat="er in errors" >
+                <span class="label label-important" >{{ er.message }}</span>
+         
+          </div>
+         </div>
+        </div>
+        </div>
+    
+       <div class="control-group" ng-if="success==true">
+       
+       
+         <label class="control-label" for="errors"></label>
+         <div class="controls">
+            <div>
+                <span class="label label-success">Successfully saved!!</span>
+         
+          </div>
+         </div>
+        </div>
+    </div>
+    
+    
+   </form>
+
+<script>
+    $('#reset').click(
+                 function()
+                        {
+                           $("#messageArea").html('')   
+                          
+                           $('#inputProvider').focus();
+                           
+                        });
+  
+</script>

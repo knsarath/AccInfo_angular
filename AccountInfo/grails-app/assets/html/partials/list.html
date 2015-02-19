@@ -1,0 +1,16 @@
+<div class="well">
+    <label class="radio" >
+        <input type="radio" name="optionsRadios" value="assets/partials/webList.html" ng-model="template" ng-click="list('web')"  >
+   <span class="metro-radio">Web Account Details</span>
+</label>
+<label class="radio">
+    <input type="radio" name="optionsRadios"  value="assets/partials/FTPList.html" ng-model="template" ng-click="list('ftp')">
+   <span class="metro-radio">FTP Account Details</span>
+</label>
+    
+</div>
+
+<div ng-controller="listAccountsController"  class="slide-animate-container" style="height: 100vh" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}" >
+    <div class="slide-animate" ng-include="template" id="viewArea"></div>
+  </div>
+
